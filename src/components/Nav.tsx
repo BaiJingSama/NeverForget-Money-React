@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import React from "react";
 import { Link } from "react-router-dom";
-import Icon from "./Icon";
-
-
+import React from "react";
+import Icon from "./Icons";
 
 const NavWrapper = styled.nav`
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
@@ -26,7 +24,7 @@ const NavWrapper = styled.nav`
   }
 `;
 
-const X = () => {
+const Nav = () => {
   return (
     <NavWrapper>
       <ul>
@@ -47,4 +45,4 @@ const X = () => {
   );
 };
 
-export default X;
+export default Nav;
