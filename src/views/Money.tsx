@@ -20,6 +20,14 @@ function Money() {
     category: "-" as Category,
     amount: 0,
   });
+  //可以用typeof获取一个值的类型
+  const onChange = (obj: Partial<typeof selected>) => {
+    // 可以通过partial传入一个类型得到一个新的类型 这个类型是之前类型的部分类型
+    setSelected({
+      ...selected,
+      ...obj,
+    });
+  };
   return (
     <MyLayout>
       {selected.tags.join(",")}
@@ -31,40 +39,20 @@ function Money() {
       {selected.amount}
       <TagsSection
         value={selected.tags}
-        onChange={(tags) =>
-          setSelected({
-            ...selected,
-            tags: tags,
-          })
-        }
+        onChange={(tags) => onChange({ tags })}
       />
       <NotesSection
         value={selected.note}
-        onChange={(note) => {
-          setSelected({
-            ...selected,
-            note: note,
-          });
-        }}
+        onChange={(note) => onChange({ note })}
       />
       <CategorySection
         value={selected.category}
-        onChange={(category) => {
-          setSelected({
-            ...selected,
-            category: category,
-          });
-        }}
+        onChange={(category) => onChange({ category })}
       />
       <NumberPadSection
         value={selected.amount}
-        onChange={(amount) => {
-          setSelected({
-            ...selected,
-            amount: amount,
-          });
-        }}
-        onOk={()=>{}}
+        onChange={(amount) => onChange({ amount })}
+        onOk={() => {}}
       />
     </MyLayout>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Wrapper from "./NumberPadSection/Wrapper";
 import generateOutput from "./NumberPadSection/generateOutput";
 
@@ -28,8 +28,8 @@ const NumberPadSection: React.FC<Props> = (props) => {
       return;
     }
     if (text === "ok") {
-      if(props.onOk){
-        props.onOk()
+      if (props.onOk) {
+        props.onOk();
       }
       return;
     }
