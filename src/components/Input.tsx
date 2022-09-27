@@ -13,7 +13,7 @@ const Label = styled.label`
     border: none;
     background: none;
     width: 100%;
-    height: 72px;
+    height: 44px;
   }
 `;
 type Props = {
