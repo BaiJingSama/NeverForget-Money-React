@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Wrapper from "./NumberPadSection/Wrapper";
 import generateOutput from "./NumberPadSection/generateOutput";
 
@@ -9,17 +9,18 @@ type Props = {
 };
 
 const NumberPadSection: React.FC<Props> = (props) => {
-  const output = props.value.toString();
+  const [output, _setOutput] = useState(props.value.toString());
   const setOutput = (output: string) => {
-    let value;
+    let newOutput;
     if (output.length > 14) {
-      value = parseFloat(output.slice(0, 14));
+      newOutput = output.slice(0, 14);
     } else if (output.length === 0) {
-      value = 0;
+      newOutput = "0";
     } else {
-      value = parseFloat(output);
+      newOutput = output;
     }
-    props.onChange(value);
+    _setOutput(newOutput);
+    props.onChange(parseFloat(newOutput));
   };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
@@ -27,10 +28,13 @@ const NumberPadSection: React.FC<Props> = (props) => {
     if (text === null) {
       return;
     }
-    if (text === "ok") {
+    if (text === "OK") {
+      console.log("1");
       if (props.onOk) {
         props.onOk();
+        _setOutput("0");
       }
+
       return;
     }
     if ("0123456789.".split("").concat(["清空", "删除"]).indexOf(text) >= 0) {
@@ -52,9 +56,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
         <button>7</button>
         <button>8</button>
         <button>9</button>
-        <button className="ok" onClick={props.onOk}>
-          OK
-        </button>
+        <button className="ok">OK</button>
         <button className="zero">0</button>
         <button>.</button>
       </div>
