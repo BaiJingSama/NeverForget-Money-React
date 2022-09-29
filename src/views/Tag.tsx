@@ -4,7 +4,7 @@ import Layout from "components/Layout";
 import React from "react";
 import { useParams,useHistory } from "react-router-dom";
 import styled from "styled-components";
-import useTags from "useTags";
+import useTags from "hooks/useTags";
 import Input from "components/Input";
 import Center from "components/Center";
 import Space from "components/Space";
