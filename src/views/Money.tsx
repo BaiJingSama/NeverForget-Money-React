@@ -46,7 +46,7 @@ function Money() {
     }
   };
   return (
-    <MyLayout>
+    <MyLayout scrollTop={9999}>
       {selected.note}
       <TagsSection
         value={selected.tagIds}
