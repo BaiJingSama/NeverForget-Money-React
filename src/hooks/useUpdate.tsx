@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const useUpdate = (fn: () => void, deps: any[]) => {
+const useUpdate = (fn: () => void, dependency: any[]) => {
   const count = useRef(0);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const useUpdate = (fn: () => void, deps: any[]) => {
       fn();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+  }, [fn, dependency]);
   // 从第二次页面渲染开始 每次tags变化了都存储数据
 };
 

@@ -56,8 +56,6 @@ function Statistics() {
     return 0;
   });
 
-  console.log(array);
-
   return (
     <Layout>
       <CategoryWrapper>
@@ -86,8 +84,6 @@ function Statistics() {
                   </div>
                   {r.note && <div className="note">{r.note}</div>}
                   <div className="amount">￥{r.amount}</div>
-
-                  {/* {day(r.createdAt).format("M月DD日")} */}
                 </Item>
               );
             })}

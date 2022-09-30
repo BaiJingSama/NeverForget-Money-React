@@ -22,10 +22,10 @@ const useTags = () => {
 
   useUpdate(() => {
     window.localStorage.setItem("tags", JSON.stringify(tags));
-  }, [tags]);
+  }, tags);
 
   const findTag = (id: number) => tags.filter((tag) => tag.id === id)[0];
-  
+
   const findTagIndex = (id: number) => {
     let result = -1;
     for (let i = 0; i < tags.length; i++) {
